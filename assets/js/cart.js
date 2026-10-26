@@ -1,3 +1,5 @@
+import { escapeHtml } from './utils.js';
+
 const KEY = 'thebeans_cart_v1';
 function read() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } }
 function write(items) { localStorage.setItem(KEY, JSON.stringify(items)); }
@@ -38,8 +40,8 @@ export function renderCart() {
   list.innerHTML = items.length ? items.map(i => `
     <div class='cart-item'>
       <div>
-        <strong>${i.name}</strong><br>
-        <span class='small muted'>${i.weight}g</span>
+        <strong>${escapeHtml(i.name)}</strong><br>
+        <span class='small muted'>${escapeHtml(i.weight)}g</span>
       </div>
       <div class='cart-item-actions'>
         <button class='icon-btn' onclick="updateQty('${i.key}', ${i.qty-1})">-</button>

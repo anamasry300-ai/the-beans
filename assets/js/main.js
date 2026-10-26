@@ -1,10 +1,14 @@
 import { loadProducts } from './products.js';
 import { renderCart, openCart, closeCart, addToCart } from './cart.js';
+import { escapeHtml } from './utils.js';
 
 function initNav() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
-  if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  if (toggle && nav) toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
 }
 function initCart() {
   document.getElementById('cart-btn')?.addEventListener('click', openCart);
@@ -32,10 +36,10 @@ function hydrateFeatured() {
 function cardHtml(p) {
   return `
   <article class="product-card">
-    <a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${imgSrc(p)}" alt="${p.name} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a>
+    <a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${imgSrc(p)}" alt="${escapeHtml(p.name)} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a>
     <div class="product-body">
-      <h3><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h3>
-      <p class="small muted">${p.origin}</p>
+      <h3><a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.name)}</a></h3>
+      <p class="small muted">${escapeHtml(p.origin)}</p>
       <p class="price">$${Number(p.priceUsd).toFixed(2)}</p>
       <div class="product-actions">
         <select data-weight="${p.id}">${p.weights.map(w=>`<option value="${w}">${w}g</option>`).join('')}</select>

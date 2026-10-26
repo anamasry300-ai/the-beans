@@ -31,7 +31,7 @@
 ## Main page / brand assets
 | Asset | Current file | Status |
 |---|---|---|
-| Hero visual | assets/images/product-placeholder.svg | Placeholder; replace with dedicated hero illustration/photo |
+| Hero visual | assets/images/hero-illustration.svg | Branded SVG illustration; replace with final hero photo if desired |
 | Logo | assets/images/logo.svg | Branded SVG, acceptable as vector logo |
 | Favicon | favicon.svg | Branded SVG, acceptable |
 | Product card fallback | assets/images/product-placeholder.svg | Keep as fallback only |

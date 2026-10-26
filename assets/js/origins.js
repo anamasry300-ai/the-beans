@@ -1,4 +1,5 @@
 import { loadProducts } from './products.js';
+import { escapeHtml } from './utils.js';
 
 const grid = document.getElementById('origin-grid');
 const productsWrap = document.getElementById('origin-products');
@@ -11,10 +12,10 @@ fetch('assets/data/origins.json').then(r => {
   const origins = data.origins || [];
   if (grid) grid.innerHTML = origins.map(o => `
     <article class="origin-card">
-      <img src="${imgFor(o)}" alt="${o.name} origin illustration" loading="lazy" onerror="this.src='assets/images/origin-placeholder.svg';this.onerror=null;">
-      <h3>${o.name}</h3>
-      <p class="small muted">${o.note}</p>
-      <a href="#" data-origin="${o.name}">View coffees</a>
+      <img src="${imgFor(o)}" alt="${escapeHtml(o.name)} origin illustration" loading="lazy" onerror="this.src='assets/images/origin-placeholder.svg';this.onerror=null;">
+      <h3>${escapeHtml(o.name)}</h3>
+      <p class="small muted">${escapeHtml(o.note)}</p>
+      <a href="#" data-origin="${escapeHtml(o.name)}">View coffees</a>
     </article>`).join('');
   grid?.querySelectorAll('[data-origin]').forEach(a => {
     a.addEventListener('click', (e) => {
@@ -23,8 +24,8 @@ fetch('assets/data/origins.json').then(r => {
       loadProducts().then(products => {
         const list = products.filter(p => p.origin === name);
         if (productsWrap) productsWrap.innerHTML = list.length
-          ? `<h3>Coffees from ${name}</h3><div class="product-grid">${list.map(p=>`
-              <article class="product-card"><a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${p.image || 'assets/images/product-placeholder.svg'}" alt="${p.name} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a><div class="product-body"><h3><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h3><p class="price">$${Number(p.priceUsd).toFixed(2)}</p></div></article>`).join('')}</div>`
+          ? `<h3>Coffees from ${escapeHtml(name)}</h3><div class="product-grid">${list.map(p=>`
+              <article class="product-card"><a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${escapeHtml(p.image || 'assets/images/product-placeholder.svg')}" alt="${escapeHtml(p.name)} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a><div class="product-body"><h3><a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.name)}</a></h3><p class="price">$${Number(p.priceUsd).toFixed(2)}</p></div></article>`).join('')}</div>`
           : `<p class="muted">No products tagged for ${name}.</p>`;
       });
     });

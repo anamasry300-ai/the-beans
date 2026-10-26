@@ -1,5 +1,6 @@
 import { loadProducts } from './products.js';
 import { addToCart } from './cart.js';
+import { escapeHtml } from './utils.js';
 
 const state = { products: [], filters: { q: '', origin: '', roast: '', category: '' } };
 
@@ -21,10 +22,10 @@ function render() {
 function card(p) {
   return `
   <article class="product-card">
-    <a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${imgSrc(p)}" alt="${p.name} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a>
+    <a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${imgSrc(p)}" alt="${escapeHtml(p.name)} coffee bag illustration" loading="lazy" onerror="this.src='assets/images/product-placeholder.svg';this.onerror=null;"></a>
     <div class="product-body">
-      <h3><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h3>
-      <p class="small muted">${p.origin} · ${p.roast}</p>
+      <h3><a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.name)}</a></h3>
+      <p class="small muted">${escapeHtml(p.origin)} · ${escapeHtml(p.roast)}</p>
       <p class="price">$${Number(p.priceUsd).toFixed(2)}</p>
       <div class="product-actions">
         <select data-weight="${p.id}">${(p.weights||[]).map(w=>`<option value="${w}">${w}g</option>`).join('')}</select>

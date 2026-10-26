@@ -10,6 +10,7 @@ const PRODUCTS = [
 ];
 
 let _productsPromise = null;
+let _cachedProducts = null;
 export async function loadProducts() {
   if (_productsPromise) return _productsPromise;
   _productsPromise = (async () => {
@@ -17,12 +18,19 @@ export async function loadProducts() {
       const res = await fetch('assets/data/products.json');
       if (!res.ok) throw new Error('fetch failed');
       const data = await res.json();
-      if (Array.isArray(data.products) && data.products.length) return data.products;
+      if (Array.isArray(data.products) && data.products.length) {
+        _cachedProducts = data.products;
+        return data.products;
+      }
     } catch (e) { /* fall back */ }
+    _cachedProducts = PRODUCTS;
     return PRODUCTS;
   })();
   return _productsPromise;
 }
 
-export function getProduct(id) { return PRODUCTS.find(p => p.id === id); }
-export function formatPrice(n) { return '$' + n.toFixed(2); }
+export async function getProduct(id) {
+  const list = _cachedProducts || await loadProducts();
+  return list.find(p => p.id === id);
+}
+export function formatPrice(n) { return '$' + Number(n).toFixed(2); }
