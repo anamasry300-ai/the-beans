@@ -1,0 +1,28 @@
+const PRODUCTS = [
+  {"id":"tb-001","name":"Port Said Morning Blend","origin":"Blend (origin not fully documented)","roast":"Medium","process":"Not specified","flavor":["Cocoa","Brown sugar","Citrus"],"description":"A balanced everyday blend inspired by the port city mornings. Smooth body, gentle acidity.","priceUsd":14.0,"weights":[250,500,1000],"image":"assets/images/product-placeholder.svg","featured":true,"category":"Blend"},
+  {"id":"tb-002","name":"Ethiopia Yirgacheffe","origin":"Ethiopia","roast":"Light","process":"Washed","flavor":["Jasmine","Lemon","Tea-like"],"description":"Bright and floral with a clean finish. Ideal for pour-over.","priceUsd":18.0,"weights":[250,500],"image":"assets/images/product-placeholder.svg","featured":true,"category":"Single Origin"},
+  {"id":"tb-003","name":"Colombia Huila","origin":"Colombia","roast":"Medium","process":"Washed","flavor":["Caramel","Red apple","Milk chocolate"],"description":"Sweet and rounded, versatile across brew methods.","priceUsd":16.5,"weights":[250,500,1000],"image":"assets/images/product-placeholder.svg","featured":false,"category":"Single Origin"},
+  {"id":"tb-004","name":"Brazil Cerrado Natural","origin":"Brazil","roast":"Medium-Dark","process":"Natural","flavor":["Hazelnut","Chocolate","Low acidity"],"description":"Nutty and comforting, great for espresso.","priceUsd":15.0,"weights":[250,500,1000],"image":"assets/images/product-placeholder.svg","featured":true,"category":"Single Origin"},
+  {"id":"tb-005","name":"Kenya AA","origin":"Kenya","roast":"Light-Medium","process":"Washed","flavor":["Blackcurrant","Tomato","Bright"],"description":"Vibrant and juicy with a sparkling acidity.","priceUsd":19.0,"weights":[250,500],"image":"assets/images/product-placeholder.svg","featured":false,"category":"Single Origin"},
+  {"id":"tb-006","name":"Guatemala Antigua","origin":"Guatemala","roast":"Medium","process":"Washed","flavor":["Spice","Cocoa","Orange"],"description":"Balanced with a gentle spice and cocoa finish.","priceUsd":17.0,"weights":[250,500,1000],"image":"assets/images/product-placeholder.svg","featured":false,"category":"Single Origin"},
+  {"id":"tb-007","name":"Decaf Mountain Water","origin":"Blend (origin not fully documented)","roast":"Medium","process":"Mountain Water (decaf)","flavor":["Chocolate","Nuts","Smooth"],"description":"Decaffeinated while keeping flavor and body.","priceUsd":16.0,"weights":[250,500],"image":"assets/images/product-placeholder.svg","featured":false,"category":"Decaf"},
+  {"id":"tb-008","name":"Espresso Roast","origin":"Blend (origin not fully documented)","roast":"Dark","process":"Not specified","flavor":["Dark chocolate","Caramel","Bold"],"description":"Built for espresso: rich crema and deep sweetness.","priceUsd":13.5,"weights":[250,500,1000],"image":"assets/images/product-placeholder.svg","featured":true,"category":"Espresso"}
+];
+
+let _productsPromise = null;
+export async function loadProducts() {
+  if (_productsPromise) return _productsPromise;
+  _productsPromise = (async () => {
+    try {
+      const res = await fetch('assets/data/products.json');
+      if (!res.ok) throw new Error('fetch failed');
+      const data = await res.json();
+      if (Array.isArray(data.products) && data.products.length) return data.products;
+    } catch (e) { /* fall back */ }
+    return PRODUCTS;
+  })();
+  return _productsPromise;
+}
+
+export function getProduct(id) { return PRODUCTS.find(p => p.id === id); }
+export function formatPrice(n) { return '$' + n.toFixed(2); }

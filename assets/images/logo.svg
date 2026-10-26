@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120' role='img' aria-label='THE BEANS logo'>
+  <defs>
+    <linearGradient id='beanGrad' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#8B6246'/>
+      <stop offset='100%' stop-color='#2B1D17'/>
+    </linearGradient>
+    <linearGradient id='waveGrad' x1='0' y1='0' x2='1' y2='0'>
+      <stop offset='0%' stop-color='#68765A'/>
+      <stop offset='100%' stop-color='#B77A4B'/>
+    </linearGradient>
+  </defs>
+  <path d='M60 18 C86 18, 102 40, 98 66 C94 92, 74 106, 52 102 C30 98, 18 78, 22 52 C26 28, 40 18, 60 18 Z' fill='url(#beanGrad)' />
+  <path d='M62 26 C54 42, 50 62, 56 84 C58 92, 62 98, 66 102' fill='none' stroke='#F4EBDD' stroke-width='3' stroke-linecap='round' opacity='0.85'/>
+  <path d='M14 96 Q30 88, 46 96 T78 96 T110 96' fill='none' stroke='url(#waveGrad)' stroke-width='2.5' stroke-linecap='round' opacity='0.9'/>
+</svg>

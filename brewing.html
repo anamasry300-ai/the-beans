@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brewing | THE BEANS</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html"><img src="assets/images/logo.svg" width="40" height="40" alt="THE BEANS logo"><span><span class="brand-name">THE BEANS</span><span class="brand-tag">FROM PORT SAID TO THE WORLD</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="origins.html">Origins</a>
+        <a href="brewing.html">Brewing</a>
+        <a href="about.html">About</a>
+        <a class="nav-admin" href="admin.html">Admin</a>
+      </nav>
+      <button id="cart-btn" class="cart-btn" aria-label="Open cart">Cart <span id="cart-count" class="cart-count">0</span></button>
+    </div>
+  </header>
+  <main id="main" class="container section">
+    <h1>Brewing guides</h1>
+    <div class="brew-grid">
+      <article class="brew-card"><h3>Pour-over (V60)</h3><p class="small">Ratio 1:16. Medium-fine grind. 92°C water. Bloom 30s, total 2:30–3:00.</p></article>
+      <article class="brew-card"><h3>French Press</h3><p class="small">Ratio 1:15. Coarse grind. 93°C water. Steep 4 min, stir, press.</p></article>
+      <article class="brew-card"><h3>Espresso</h3><p class="small">18g in, 36g out. 25–30s. 93°C. Fine grind.</p></article>
+      <article class="brew-card"><h3>Cold Brew</h3><p class="small">Ratio 1:8. Coarse grind. Steep 12–16h in fridge. Dilute to taste.</p></article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container"><p class="footer-bottom">© THE BEANS.</p></div></footer>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-head"><h2>Cart</h2><button id="cart-close" class="icon-btn">Close</button></div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-foot"><p class="cart-total" id="cart-total">$0.00</p><button class="btn btn-primary btn-block" onclick="alert('Checkout is not available in this static demo.')">Checkout</button></div>
+  </aside>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

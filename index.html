@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE BEANS | Specialty Coffee from Port Said</title>
+  <meta name="description" content="THE BEANS specialty coffee. From Port Said to the World.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html"><img src="assets/images/logo.svg" width="40" height="40" alt="THE BEANS logo"><span><span class="brand-name">THE BEANS</span><span class="brand-tag">FROM PORT SAID TO THE WORLD</span></span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="origins.html">Origins</a>
+        <a href="brewing.html">Brewing</a>
+        <a href="about.html">About</a>
+        <a class="nav-admin" href="admin.html">Admin</a>
+      </nav>
+      <button id="cart-btn" class="cart-btn" aria-label="Open cart">Cart <span id="cart-count" class="cart-count">0</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">PORT SAID · EGYPT · THE WORLD</p>
+          <h1>Specialty coffee, roasted with identity.</h1>
+          <p class="hero-lead">THE BEANS brings Port Said's port-city energy to your cup. Carefully sourced, honestly labeled, roasted for clarity.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="shop.html">Shop coffee</a>
+            <a class="btn btn-ghost" href="origins.html">Explore origins</a>
+          </div>
+        </div>
+        <div class="hero-visual"><img src="assets/images/hero-illustration.svg" alt="THE BEANS brand illustration" width="800" height="600" loading="eager" decoding="async"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>Featured</h2><a class="link" href="shop.html">View all</a></div>
+        <div id="featured-grid" class="product-grid"></div>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>From Port Said to the World</h2>
+        <p>We are a specialty coffee brand rooted in Port Said. Every bag tells you what we know and what we do not. When an origin detail is not specified, we say so — no invented provenance.</p>
+        <a class="btn btn-primary" href="about.html">Our philosophy</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h3>THE BEANS</h3><p class="small">From Port Said to the World.</p></div>
+        <div><h4>Shop</h4><a href="shop.html">All coffee</a><a href="origins.html">Origins</a></div>
+        <div><h4>Learn</h4><a href="brewing.html">Brewing</a><a href="about.html">About</a></div>
+        <div><h4>Info</h4><a href="admin.html">Admin (demo)</a></div>
+      </div>
+      <p class="footer-bottom">© THE BEANS. Specialty coffee from Port Said.</p>
+    </div>
+  </footer>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-head"><h2>Cart</h2><button id="cart-close" class="icon-btn">Close</button></div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-foot"><p class="cart-total" id="cart-total">$0.00</p><button class="btn btn-primary btn-block" onclick="alert('Checkout is not available in this static demo.')">Checkout</button></div>
+  </aside>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

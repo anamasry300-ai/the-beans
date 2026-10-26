@@ -1,0 +1,9 @@
+{
+  "origins": [
+    {"name":"Ethiopia","note":"Floral, citrus, tea-like profiles.","image":"assets/images/origin-placeholder.svg"},
+    {"name":"Colombia","note":"Sweet, balanced, caramel and apple.","image":"assets/images/origin-placeholder.svg"},
+    {"name":"Brazil","note":"Nutty, chocolate, low acidity.","image":"assets/images/origin-placeholder.svg"},
+    {"name":"Kenya","note":"Bright, juicy, berry-like.","image":"assets/images/origin-placeholder.svg"},
+    {"name":"Guatemala","note":"Spice, cocoa, orange.","image":"assets/images/origin-placeholder.svg"}
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' role='img' aria-label='Coffee product illustration'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#F4EBDD'/>
+      <stop offset='100%' stop-color='#E8D9C3'/>
+    </linearGradient>
+  </defs>
+  <rect width='400' height='300' fill='url(#bg)'/>
+  <g transform='translate(200,150)'>
+    <ellipse cx='0' cy='40' rx='90' ry='22' fill='#8B6246' opacity='0.25'/>
+    <path d='M-70 -20 C-70 40, -40 70, 0 70 C40 70, 70 40, 70 -20 Z' fill='#2B1D17'/>
+    <path d='M-70 -20 C-40 -40, 40 -40, 70 -20' fill='#3a2720'/>
+    <rect x='-60' y='-35' width='120' height='18' rx='4' fill='#9B3436'/>
+    <text x='0' y='-22' text-anchor='middle' font-family='Georgia, serif' font-size='12' fill='#F4EBDD'>THE BEANS</text>
+  </g>
+</svg>
